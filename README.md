@@ -53,7 +53,7 @@ The logic uses a simple toggle mechanism to control the share panel’s visibili
 
 Mixins for reusable utilities:
 
-`
+```
 @mixin flexbox {
 display: flex;
 justify-content: center;
@@ -65,7 +65,7 @@ background-position: center center;
 background-size: cover;
 background-repeat: no-repeat;
 }
-`
+```
 
 - Responsive breakpoints to adjust layout at 55rem (≈880px).
 - Hover transitions for interactive feedback.
