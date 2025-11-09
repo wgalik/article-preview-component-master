@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+$VeryDarkGrayishBlue: hsl(217, 19%, 35%);
+$DesaturatedDarkBlue: hsl(214, 17%, 51%);
+$GrayishBlue: hsl(212, 23%, 69%);
+$LightGrayishBlue: hsl(210, 46%, 95%);
+
+@mixin flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin background-image {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  color: $VeryDarkGrayishBlue;
+  width: 100vw;
+  height: 100dvh;
+  background-color: $LightGrayishBlue;
+  @include flexbox;
+}
+
+.card {
+  width: 330px;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  // overflow: hidden;
+  @include flexbox;
+  flex-direction: column;
+  justify-content: start;
+  gap: 1rem;
+  box-shadow: 10px 10px 50px 10px $GrayishBlue;
+  @media (min-width: 55rem) {
+    width: 730px;
+    flex-direction: row;
+  }
+  .image {
+    border-radius: 0.5rem 0.5rem 0 0;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-image: url("./images/drawers.jpg");
+    @include background-image;
+    @media (min-width: 55rem) {
+      border-radius: 0.5rem 0 0 0.5rem;
+      aspect-ratio: 1/1;
+      flex: 0 0 40%;
+    }
+  }
+  article {
+    padding: 2rem;
+    padding-bottom: 1rem;
+
+    .lead {
+      font-size: 1rem;
+      font-weight: 700;
+      padding-bottom: 1rem;
+    }
+    p {
+      font-size: 15px;
+    }
+  }
+
+  footer {
+    width: 100%;
+    padding: 1rem 2rem;
+    @include flexbox;
+    justify-content: start;
+    gap: 1rem;
+    position: relative;
+    .avatar {
+      background-image: url("./images/avatar-michelle.jpg");
+      @include background-image;
+      width: 15%;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+    }
+    .date {
+      font-weight: 500;
+    }
+    .openShareBar {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: $VeryDarkGrayishBlue;
+      @include flexbox;
+      justify-content: start;
+      gap: 1rem;
+      padding: 1rem 2rem;
+      display: none;
+      border-radius: 0 0 0.5rem 0.5rem;
+      z-index: 2;
+      @media (min-width: 55rem) {
+        border-radius: 0.5rem;
+        width: 250px;
+        height: 55px;
+        top: -80%;
+        left: 58%;
+      }
+      h5 {
+        color: $DesaturatedDarkBlue;
+        font-weight: 700;
+        letter-spacing: 5px;
+      }
+      svg {
+        transition: scale 0.2s linear;
+        color: $LightGrayishBlue;
+        &:hover {
+          scale: 1.1;
+        }
+      }
+      .square {
+        display: none;
+        position: absolute;
+        bottom: -65%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 24px;
+        aspect-ratio: 1/1;
+        border: 12px solid transparent;
+        border-top: 12px solid $VeryDarkGrayishBlue;
+        z-index: 1;
+        @media (min-width: 55rem) {
+          display: block;
+        }
+      }
+    }
+    button {
+      width: 12%;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      border: none;
+      background-color: $LightGrayishBlue;
+      color: $DesaturatedDarkBlue;
+      margin-left: auto;
+      z-index: 99;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        background-color: $DesaturatedDarkBlue;
+        color: $LightGrayishBlue;
+      }
+      &.active {
+        background-color: $DesaturatedDarkBlue;
+        color: $LightGrayishBlue;
+        &:hover {
+          background-color: $LightGrayishBlue;
+          color: $DesaturatedDarkBlue;
+        }
+      }
+    }
+  }
+}
